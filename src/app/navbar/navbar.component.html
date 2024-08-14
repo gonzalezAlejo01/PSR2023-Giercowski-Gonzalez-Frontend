@@ -1,0 +1,22 @@
+  <div class="nav">
+    <div routerLink="/inicio" class="nav-header">
+      <img class="perro" src="../../assets/perro.jpg">
+      <div class="nav-title">PetMatch</div>
+
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+    <input type="checkbox" id="nav-check">
+    <div class="nav-links">
+      <a *ngIf="!logeado" routerLink="/registro">Registrarse</a>
+      <a *ngIf="!logeado" routerLink="/login">Iniciar sesión</a>
+      <a *ngIf="logeado" (click)="cerrarSesion()">Cerrar sesión</a>
+      <a *ngIf="logeado" routerLink="/chat"><span class="material-icons">chat</span></a>
+      <a *ngIf="logeado"><img src="{{usuario.foto}}" routerLink="/usuario" alt="foto perfil" class="imgUsuario"></a>
+    </div>
+  </div>

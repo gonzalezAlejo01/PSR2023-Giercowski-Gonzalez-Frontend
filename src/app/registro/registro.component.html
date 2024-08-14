@@ -1,0 +1,23 @@
+ <app-navbar></app-navbar>
+ <body>
+   
+    <div class="register-container">
+        <div class="register">
+            <p id="title">Registro</p>
+            <div class="dos">
+                <input #name id="name" placeholder="Nombre">
+                <input #password id="password" placeholder="Contraseña" type="password">
+            </div>
+            <input #mail id="mail" placeholder="Correo">
+            <input #telefono id="telefono" placeholder="Telefono" maxlength="10">
+            <input #direccion id="direccion" placeholder="Direccion">
+            <button (click)="registro(mail.value, password.value, name.value, direccion.value, telefono.value)" id="btn">Registrarse</button>
+            <p style="color: red;">{{error}}</p>
+        </div>
+        
+    </div>
+    
+    
+
+</body>
+

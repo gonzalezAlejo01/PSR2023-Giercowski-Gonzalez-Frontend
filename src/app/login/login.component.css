@@ -1,0 +1,66 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    
+}
+
+.login {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 35vw;
+   
+    
+}
+
+#title {
+    font-size: 24px;
+    color: #07b13f;
+    font-weight: bolder;
+}
+
+input {
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+#btn {
+    height: 40px;
+    width: 100%;
+    font-size: 18px;
+    background-color: white;
+    color: #07b13f;
+    border-radius: 4px;
+    cursor: pointer;
+    transition:.3s;
+    margin-top: 15px;
+    border: 1px solid black;
+}
+
+#btn:hover {
+    background-color: #07b13f;
+    color: white;
+    border: none;
+}
+
+@media (max-width:960px){
+    .login-container {
+        min-height: 80vh;
+    }
+    .login {
+        max-width: 80vw;
+    }
+}

@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+<body>
+  <div class="items">
+    <div *ngFor="let item of publicaciones; let i = index" [attr.data-index]="i" class="item">
+      <li style="list-style-type: none;" [routerLink]="['../','publicacion', publicaciones[i].id]" #idPublicacion value="publicaciones[i].id">
+        <div class="contenedor" >
+          <div class="contenedorImagen">
+            <img [src]="url + (publicaciones[i].fotos[0])" alt="imagen adopcion"
+              class="imagenItem">
+          </div>
+          <a>
+            <p class="tItem">{{publicaciones[i].titulo}}</p><br>
+            <p class="pItem">$ {{publicaciones[i].precio}}</p>
+           
+          </a>
+        </div>
+      </li>
+        
+    </div>
+  </div>
+  <div class="boton">
+    <button *ngIf=" hayMas" (click)="cargarMas()" id="boton">Cargar mas</button>
+  </div>
+
+</body>

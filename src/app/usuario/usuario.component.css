@@ -1,0 +1,368 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+hr {
+    max-width: 80vw;
+}
+.editarPerfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+    transition: .2s;
+    width: 80px;
+}
+.formsEditarPerfil{
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    padding-top: 40px;
+    border-radius: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 20px; 
+    text-align: center;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.formsEditarPerfil > p{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 25px;
+
+}
+.formsEditarPerfil >button{
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 10px;
+    font-size: large;
+    padding: 10px;
+    transition: .2s;
+    width: 100px;
+    margin: 10px;
+
+}
+#btnEditar{
+    border: #005236 solid 2px;
+    color:#005236;
+}
+#btnEditar:hover{
+    background-color: #005236;
+    color: white;
+}
+
+#btnCancelar{
+    border: #d32f2f solid 2px;
+    color:#d32f2f;
+}
+#btnCancelar:hover{
+    background-color: #d32f2f;
+    color: white;
+}
+.formsEditarPerfil.ng-star-inserted{
+    box-shadow: none;
+}
+.infoPerfilEditar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 75%;
+}
+
+.dataPerfil {
+    display: flex;
+    padding: 30px;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 75px;
+    background-color: #07b14034;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.contenedorImagen {
+    justify-content: center;
+    display: flex;
+
+}
+
+.imagenItem {
+    text-align: center;
+    object-fit: cover;
+    max-height: 150px;
+    width: 275px;
+    border-radius: 20px 0px 0px 20px;
+
+}
+
+#iconoEditarPerfil {
+    cursor: pointer;
+}
+.btn-forms {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: large;
+    margin: 30px;
+    position: relative;
+    color: black; /* Color inicial del texto */
+    text-decoration: none; /* Elimina el subrayado predeterminado */
+    transition: color 0.3s; /* Animación para el cambio de color del texto */
+  }
+  
+  .btn-forms::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #07b140; /* Color del subrayado */
+    transition: width 0.2s; /* Animación para el crecimiento del subrayado */
+  }
+  
+  .btn-forms:hover::before,
+  .btn-forms:focus::before {
+    width: 100%;
+  }
+  
+
+.publicacion {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    max-width: 60%;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    margin: 1vw 1vw;
+    margin-bottom: 4vh;
+    border-radius: 20px;
+}
+
+.fotoPerfil {
+    height: 250px;
+    border-radius: 50%;
+    margin: 0 3vw;
+    position: relative;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.descPerfil {
+    font-size: x-large;
+    margin: 0 3vw;
+}
+
+.icono {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-bottom: 2vh;
+}
+
+textarea {
+    resize: none;
+}
+
+.item {
+    
+    font-size: xx-large;
+    margin: auto;
+}
+#itemBtnEditar{
+    border: #005236 solid 2px;
+    background-color: transparent;
+    color: #005236;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 15px;
+    font-size: smaller;
+    transition: .2s;
+}
+#itemBtnEditar:hover{
+    background-color: #005236;
+    color: white;
+}
+#itemBtnBorrar{
+    border: #d32f2f solid 2px;
+    background-color: transparent;
+    color: #d32f2f;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 15px;
+    font-size: smaller;
+    transition: .2s;
+}
+#itemBtnBorrar:hover{
+    background-color: #d32f2f;
+    color: white;
+}
+
+.mat-icon {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.err {
+    font-size: 18px;
+}
+
+.containerInfo{
+    display: flex;
+    align-items: center;
+
+}
+
+.infoPerfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3vw;
+}
+ 
+
+.formsEditar{
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+    padding-top: 40px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-size: 20px; 
+    text-align: center;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+}
+.formsEditar > button{
+    cursor: pointer;
+    background-color: transparent;
+    border: #005236 solid 2px;
+    border-radius: 10px;
+    color:#005236;
+    font-size: large;
+    padding: 1vw;
+    transition: .2s;
+}
+.formsEditar > button:hover{
+    background-color: #005236;
+    color: white;
+}
+
+.titulo {
+    font-size: xx-large;
+    justify-content: center;
+    display: flex;
+}
+
+.tItem {
+    font-size: x-large;
+    margin: 0 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.dItem {
+    font-size: 20px;
+    margin: 0 10px;
+    opacity: 0.7;
+}
+.pItem{
+    font-size: 20px;
+    margin: 0 10px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.forms {
+    margin-bottom: 10vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.tituloForms > input{
+    height: 40px;
+    width: 683px;
+}
+.itemForms{
+    height: 40px;
+    width: 341.5px;
+    padding: 0;
+}
+.dos{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.descripcionForms{
+    width: 100%;
+    height: 100px;
+    margin-bottom: 5vh;
+}
+.descripcionForms > textarea{
+    width: 683px;
+    height: 100px;
+}
+
+@media(max-width: 600px){
+    .dataPerfil{
+        display: inline-block;
+        margin-top: 30px;
+        text-align: center;
+        margin-left: 10vw;
+    }
+    .containerInfo{
+        font-size: small;
+    }
+    .fotoPerfil{
+        height: 100px;
+        width: 100px;
+        margin: 0 3vw;
+    }
+    .imagenItem{
+        max-height: 150px;
+        width: 150px;
+    }
+}
+@media(max-width: 900px){
+    .fotoPerfil{
+        height: 125px;
+        width: 125px;
+        margin: 0;
+    }
+    .publicacion{
+        min-width: 100%;
+    }
+    .formsEditar{
+        margin: auto;
+        width: 80%;
+    }
+    .formsEditar > input{
+        width: 100%;
+    }
+}

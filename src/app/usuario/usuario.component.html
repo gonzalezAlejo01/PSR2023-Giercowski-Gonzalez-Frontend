@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<div class="dataPerfil">
+    <img src="{{ usuario.foto }}" class="fotoPerfil">
+    <div class="descPerfil">
+        <div class="containerInfo">
+            <p id="nombre"><mat-icon>account_circle</mat-icon></p>
+            <p class="infoPerfil">{{usuario.nombre}}</p>
+        </div>
+        <div class="containerInfo">
+            <p id="correo"><mat-icon> email</mat-icon></p>
+            <p class="infoPerfil">{{usuario.correo}}</p>
+        </div>
+        <div class="containerInfo">
+            <p id="direccion"><mat-icon> location_on</mat-icon></p>
+            <p class="infoPerfil">{{usuario.direccion}}</p>
+        </div>
+        <div class="containerInfo">
+            <p id="telefono"><mat-icon>call</mat-icon></p>
+            <p class="infoPerfil">{{usuario.telefono}}</p>
+        </div>
+    </div>
+</div>
+<div class="editarPerfil">
+    <mat-icon id="iconoEditarPerfil" (click)="verEdicion()" *ngIf="!editar">edit</mat-icon>
+    <div *ngIf="editar" class="formsEditarPerfil">
+        <p>Editar perfil</p>
+        <input class="infoPerfilEditar" #nombreModificar placeholder="{{usuario.nombre}}">
+        <input #direccionModificar class="infoPerfilEditar" placeholder="{{usuario.direccion}}">
+        <input #telefonoModificar class="infoPerfilEditar" placeholder="{{usuario.telefono}}" maxlength="10">
+        <input (change)="onProfilePhotoSelected($event)" type="file" title="Elija una imagen" /><br>
+        <button id="btnCancelar" (click)="verEdicion()">Cancelar</button>
+        <button id="btnEditar" (click)="modificarUsuario()">Editar</button><br>
+        {{errorEditar}}
+    </div>
+</div>
+<hr>
+<br><br>
+<button *ngIf="verFormsBool" class="icono" (click)="verForms()"><span class="material-icons"
+        style="color: rgb(255, 0, 0);">cancel</span></button>
+<button *ngIf="!verFormsBool" class="icono" (click)="verForms()"><span class="material-icons"
+        style="color: #07b13f;">add_circle</span></button>
+<div *ngIf="verFormsBool" class="forms">
+    <button class="btn-forms" (click)="verFormsAdopcion()">Adopcion</button>
+    <button class="btn-forms" (click)="verFormsExtravio()">Extravio</button>
+    <div class="formsAdopcion" *ngIf="formsAdopcion">
+        <div>
+            <div class="tituloForms">
+                <input #titulo type="text" placeholder="Titulo">
+            </div>
+            <div class="dos">
+                <input class="itemForms" #precio type="number" placeholder="Precio">
+                <input class="itemForms" #ubicacion placeholder="Ubicacion">
+            </div>
+            <div class="descripcionForms">
+                <textarea #descripcion placeholder="Descripcion"></textarea>
+            </div>
+        </div>
+        <input class="" id="fotos" #fotos type="file" (change)="onFileSelected($event)">
+        <button
+            (click)="publicar(titulo.value, descripcion.value, precio.value, fotos.value, ubicacion.value, 0)">Publicar</button>
+        <p class="err">{{err}}</p>
+    </div>
+    <div class="formsExtravio" *ngIf="formsExtravio">
+        <div>
+            <div class="tituloForms">
+                <input #titulo type="text" placeholder="Nombre">
+            </div>
+            <div class="dos">
+                <input style="width: 688px;" class="itemForms" #ubicacion placeholder="Ultima ubicacion conocida">
+            </div>
+            <div class="descripcionForms">
+                <textarea #descripcion placeholder="Descripcion"></textarea>
+            </div>
+        </div>
+        <input class="" id="fotos" #fotos type="file" (change)="onFileSelected($event)">
+        <button
+            (click)="publicar(titulo.value, descripcion.value, '0', fotos.value, ubicacion.value, 1)">Publicar</button>
+        <p class="err">{{err}}</p>
+    </div>
+</div>
+<hr><br><br>
+<p class="titulo">Tus publicaciones</p>
+<div class="publicaciones">
+    <div *ngFor="let item of publicaciones; let i = index" [attr.data-index]="i" class="item">
+        <a class="publicacion" [routerLink]="['../','publicacion', publicaciones[i].id]">
+            <div class="contenedorImagen">
+                <img [src]="url + (publicaciones[i].fotos[0])" alt="imagen adopcion" class="imagenItem">
+            </div>
+            <div class="texto">
+                <p routerLink="" class="tItem">{{publicaciones[i].titulo}}</p>
+                <p class="pItem">${{publicaciones[i].precio}}</p>
+            </div>
+            <br>
+
+        </a>
+
+        <button (click)="mostrarFormularioEditar(publicaciones[i])" id="itemBtnEditar" #boton
+            value={{publicaciones[i].id}}>Editar</button>
+        <button id="itemBtnBorrar"  #boton
+            value={{publicaciones[i].id}} (click)="borrarPublicacion(boton.value)">Borrar</button>
+        <div *ngIf="publicaciones[i].mostrandoFormularioEditar" class="formsEditar">
+            <input #nombre placeholder="{{publicaciones[i].titulo}}">
+            <input #descripcion placeholder="{{publicaciones[i].descripcion}}">
+            <input #precio placeholder="{{publicaciones[i].precio}}">
+            <input (change)="onEditPhotoSelected($event)" type="file">
+            <button
+                (click)="editarPublicacion(publicaciones[i].id, nombre.value, descripcion.value, precio.value)">Confirmar
+            </button>
+        </div>
+    </div>
+</div> 

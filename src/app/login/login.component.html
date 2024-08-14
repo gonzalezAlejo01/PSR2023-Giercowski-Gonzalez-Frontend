@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<body>
+    <div class="login-container">
+        <div class="login">
+            <p id="title">Inicio de sesión</p>
+            <input #name id="name" placeholder="Correo">
+            <input #password id="password" placeholder="Contraseña" type="password">
+            <button (click)="login(name.value,password.value)"id="btn">Iniciar Sesión</button>
+            <p style="color: red;">{{error}}</p>
+        </div>
+    </div>
+</body>
+
+

@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<div class="publicaciones">
+    <div *ngFor="let item of extravios; let i = index" [attr.data-index]="i" class="item">
+        <a (click)="empezarmapita(extravios[i].ubicacion); verInfoContacto(extravios[i].mailUsuario); alternarInfoContacto(extravios[i])" class="publicacion">
+            <div class="contenedorImagen">
+                <img [src]="url + (extravios[i].fotos[0])" alt="imagen adopcion" class="imagenItem">
+            </div>
+            <div class="texto">
+                <p class="tItem">{{extravios[i].titulo}}</p>
+                <p *ngIf="!extravios[i].alternarInfo" class="dItem">{{extravios[i].descripcion}}</p>
+                <div *ngIf="extravios[i].alternarInfo" class="infoAlterna">
+                    <span class="material-icons">phone</span><p>{{infoContacto.telefono}}</p>
+                    <span class="material-icons">email</span><p>{{infoContacto.correo}}</p>
+                </div>
+                
+            </div>
+            <br> 
+        </a>
+    </div>
+</div>
+<div id="map"></div>

@@ -1,0 +1,192 @@
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bcbbbb;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #979696;
+}
+.container {
+  display: flex;
+}
+
+.particpantes {
+
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: auto;
+  height: 80vh;
+
+}
+.crearChat{
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 10px;
+  border-bottom: #888 solid 1px;
+}
+
+.crearChat > button{
+  border-radius: 50%;;
+  border:none;
+  color: #078e34;
+  scale: 1.5;
+  background-color: transparent;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  transition: .2s;
+}
+  .crearChat > button:hover{
+      
+      color: #005236;
+  }
+.crearChat > input{
+  width: 80%;
+  border-radius: 15px;
+  border: #888 solid 1px;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+.particpante {
+  padding: 5px;   
+  margin-bottom: 5px;
+  border-radius: 25PX;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;   
+  border: #888 solid 1px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+.chat-container {
+  width: 75%;
+  display: flex;
+  overflow: auto;
+  height: 80vh;
+  flex-direction: column; /* Para que los mensajes se apilen uno encima del otro */
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box; /* Para incluir el padding y el borde en el ancho */
+ 
+}
+
+.mensaje-container {
+  margin-top: 15px;
+}
+
+.mensaje {
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.mensaje-propio {
+  background-color: #c8e6c9;
+  text-align: right;
+  width: 50%;
+  margin-left: auto;
+}
+
+.mensaje-otro {
+  background-color: #e0f7fa;
+  text-align: left;
+  width: 50%;
+}
+
+.contenido {
+  font-size: 18px;
+}
+
+.fecha {
+  font-size: 12px;
+  color: #888;
+}
+.input-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-top: #888 solid 1px;
+  box-sizing: border-box;
+
+}
+.input-container > input{
+  width: 80%;
+  border-radius: 15px;
+  border: #888 solid 1px;
+  padding: 10px;
+  margin: 10px;
+}
+.input-container > button{
+      border-radius: 50%;;
+      border: #888 solid 1px;
+      background-color: transparent;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+      transition: .2s;
+  }
+  .input-container > button:hover{
+      background-color: #005236;
+      color: white;
+  }
+  .particpante:hover {
+      background-color: #f0f0f0; /* Cambia el color de fondo al pasar el ratón */
+    }
+    
+    .particpante.seleccionado {
+      background-color: #07b14034;
+    }
+  #toggle{
+    display: none;
+  }
+
+@media(max-width:900px){
+  .particpante{
+      font-size: 15px;
+  }
+}
+@media(max-width:600px){
+  .particpantes{
+    background-color: rgb(240, 242, 240);
+  }
+  .chat-container{
+    width: 100%;
+    height: 80vh;
+  }
+  #toggle{
+    display: block;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid #888;
+    height: 5vh;
+    margin-top: 40vh;
+    border-radius: 0px 10px 10px 0px;
+
+  }
+  .toggle{
+    display: flex;
+  }
+  .left-container{
+    display: flex;
+  }
+  .chat-container{
+    display: block;
+    width: 100%;
+  }
+}

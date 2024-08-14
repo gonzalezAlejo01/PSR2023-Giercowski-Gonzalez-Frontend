@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<app-navbar></app-navbar>
+
+<body>
+    <div id="overlay" class="overlay" *ngIf="enCheckout">
+        <div class="contCheckout">
+            <h2>Checkout</h2>
+            <p class="textoCheckout">texto relleno sobre que vas a comprar x, etc etc</p>
+            <p class="textoCheckout">El pago se realiza en efectivo, por un total de: ${{publicacion.precio}}</p>
+            <p class="textoCheckout">El producto lo puede pasar a retirar a: {{ubicacionVendedor}}</p>
+            <button (click)="comprar()">Comprar</button>
+            <button (click)="checkOut(false)">Cerrar</button>
+        </div>
+    </div>
+    <div class="infoBasicaPub">
+        <div class="contImagen">
+            <img src="{{url + publicacion.fotos[0]}}" class="imgPub">
+        </div>
+        <div class="informacion">
+            <p id="titulo">{{publicacion.titulo}}</p>   
+            <p id="precio">${{publicacion.precio}}</p>
+            <button class="btnComprar" (click)="checkOut(true)">Comprar</button>
+            <p class="errorCompra">{{errorCompra}}</p>
+            <p style="font-size: 18px;">Por: {{publicacion.mailUsuario}}</p>
+        </div>
+    </div>
+    <hr style="opacity: 0.5;"><br>
+    <div class="descripcion">
+        <p>Descripción</p>
+        <p id="descripcion">{{publicacion.descripcion}}</p>
+    </div>
+    <hr style="opacity: 0.5;">
+    <div class="contComentarios">
+        <p style="font-size:35px;">Preguntas y respuestas</p>
+        <div *ngIf="!sosPropietario">
+            <input #comentario type="text" class="inputCom" placeholder="Escribi un comentario">
+            <button class="botSubirCom" (click)="comentar(comentario.value)">comentar</button>
+            <p style="color: red;">{{mensajeComentario}}</p>
+        </div>
+        <div class="comentarios">
+            <div *ngFor="let item of comentarios; let i = index" [attr.data-index]="i">
+                <div class="comentario">
+                    <div class="contenido">
+                        <img class="fotoComentarios" src="{{url + fotoComentarios[i]}}">
+                        <p class="contComentario">
+                            {{comentarios[i].mailUsuario}}:<br> <a style="font-weight: 200;">{{comentarios[i].contenido}}</a>
+                        </p>
+                    </div>
+                    <p class="fecha">{{comentarios[i].fecha | date:'medium'}} </p>
+                    <button class="botRta" (click)="mostrarFormularioRespuesta(comentarios[i])"
+                        *ngIf="sosPropietario && !comentarios[i].respondido">Responder</button>
+                </div>
+                <div *ngIf="comentarios[i].mostrandoFormularioRespuesta" class="responder">
+                    <textarea #respuesta placeholder="Escribí tu respuesta" cols="30" rows="10"></textarea>
+                    <button (click)="responder(comentarios[i].id, respuesta.value)">Enviar respuesta</button>
+                </div>
+                <div class="contRTA">
+                    <p style="opacity: 0.6" class="RTA">
+                        <mat-icon *ngIf="comentarios[i].respondido">subdirectory_arrow_right</mat-icon>
+                        {{comentarios[i].respuesta}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
